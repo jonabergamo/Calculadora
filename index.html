@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class = "corpo">
+        <div class = "visor1">
+            <h1 id = "digitado"></h1>
+            <h1 id = "resultado"><h1>
+        </div>
+        <div class = "visor"> 
+            <div class = "detalhe">
+                <div class = "coluna-peça">
+                    <div class = "peça"></div>
+                    <div class = "peça"></div>
+                </div>
+                <div class = "coluna-peça">
+                    <div class = "peça"></div>
+                    <div class = "peça"></div>
+                </div>
+                <div class = "coluna-peça">
+                    <div class = "peça"></div>
+                    <div class = "peça"></div>
+                </div>
+                <div class = "coluna-peça">
+                    <div class = "peça"></div>
+                    <div class = "peça"></div>
+                </div>
+                <div class = "coluna-peça">
+                    <div class = "peça"></div>
+                    <div class = "peça"></div>
+                </div>
+                <div class = "coluna-peça">
+                    <div class = "peça"></div>
+                    <div class = "peça"></div>
+                </div>
+                <div class = "coluna-peça">
+                    <div class = "peça"></div>
+                    <div class = "peça"></div>
+                </div>
+                <div class = "coluna-peça">
+                    <div class = "peça"></div>
+                    <div class = "peça"></div>
+                </div>
+            </div>   
+        </div>
+    <div class="teclado">
+        <div class = "coluna">
+            <button class = "tecla"  onclick="clean()">
+                <h1 class = "numero">C</h1>
+            </button>
+            <button class = "tecla" onclick="tecla('7')">
+                <h1 class = "numero">7</h1>
+            </button>
+            <button class = "tecla" onclick="tecla('4')">
+                <h1 class = "numero">4</h1>
+            </button>
+            <button class = "tecla" onclick="tecla('1')">
+                <h1 class = "numero">1</h1>
+            </button>
+            <button class = "tecla" onclick="tecla('0')">
+                <h1 class = "numero">0</h1>
+            </button>
+        
+        </div>
+        <div class = "coluna">
+            <button class = "tecla" onclick="back()">
+                <h1 class = "numero"><</h1>
+            </button>
+            <button class = "tecla" onclick="tecla('8')">
+                <h1 class = "numero">8</h1>
+            </button>
+            <button class = "tecla" onclick="tecla('5')">
+                <h1 class = "numero">5</h1>
+            </button>
+            <button class = "tecla" onclick="tecla('2')">
+                <h1 class = "numero">2</h1>
+            </button>
+            <button class = "tecla" onclick="tecla('00')">
+                <h1 class = "numero">00</h1>
+            </button>
+        </div>
+        <div class = "coluna">
+            <div class = "tecla" onclick="tecla('/')">
+                <h1 class = "numero">/</h1>
+            </div>
+            <button class = "tecla" onclick="tecla('9')">
+                <h1 class = "numero">9</h1>
+            </button>
+            <button class = "tecla" onclick="tecla('6')"> 
+                <h1 class = "numero">6</h1>
+            </button>
+            <button class = "tecla" onclick="tecla('3')">
+                <h1 class = "numero">3</h1>
+            </button>
+            <button class = "tecla" onclick="tecla('.')">
+                <h1 class = "numero">.</h1>
+            </button>
+    </div>
+    <div class = "coluna">
+        <button class = "tecla" onclick="tecla('*')">
+            <h1 class = "numero">x</h1>
+        </button>
+        <button class = "tecla" onclick="tecla('-')">
+            <h1 class = "numero">-</h1>
+        </button>
+        <button class = "tecla" onclick="tecla('+')">
+            <h1 class = "numero">+</h1>
+        </button>
+        <button class = "tecla"  onclick="calcular()" style="height: 110px;">
+            <h1 class = "numero">=</h1>
+        </button>
+      
+<Script>
+
+    function tecla (num)
+    {
+        var numero = document.getElementById('resultado').innerHTML
+        document.getElementById('resultado').innerHTML = numero + num
+
+     }
+
+     function clean() 
+     {
+        document.getElementById('resultado').innerHTML = ''
+        document.getElementById('digitado').innerHTML = ''
+     }
+
+
+     function back()
+     {
+        var digitado = document.getElementById('digitado').innerHTML
+        var resultado = document.getElementById('resultado').innerHTML;
+        document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1)
+        
+        if (resultado.length == 1) {
+            clean()
+        }
+     }
+
+     function calcular()
+     {
+        var resultado = document.getElementById('resultado').innerHTML
+        var digitado = document.getElementById('digitado').innerHTML
+        if(resultado)
+        {
+            document.getElementById('digitado').innerHTML = resultado
+            document.getElementById('resultado').innerHTML = eval(resultado)
+
+        }
+     }
+
+</Script>
+</body>
+</html>
